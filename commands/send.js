@@ -3,18 +3,15 @@ const { SlashCommandBuilder } = require("discord.js");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("send")
-        .setDescription("Test"),
+        .setDescription("اختبار"),
 
     async execute(interaction) {
-
         await interaction.reply({
             content: "البوت شغال ✅",
-            ephemeral: true
+            ephemeral: true,
         });
-
-    }
+    },
 };
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("send")
