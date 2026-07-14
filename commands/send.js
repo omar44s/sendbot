@@ -1,11 +1,19 @@
-const {
-    SlashCommandBuilder,
-    PermissionFlagsBits,
-    ModalBuilder,
-    TextInputBuilder,
-    TextInputStyle,
-    ActionRowBuilder
-} = require("discord.js");
+const { SlashCommandBuilder } = require("discord.js");
+
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName("send")
+        .setDescription("Test"),
+
+    async execute(interaction) {
+
+        await interaction.reply({
+            content: "البوت شغال ✅",
+            ephemeral: true
+        });
+
+    }
+};
 
 module.exports = {
     data: new SlashCommandBuilder()
