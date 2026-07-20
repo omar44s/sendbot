@@ -1,4 +1,6 @@
-const { Client, GatewayIntentBits, Collection } = require('discord.js');
+require("dotenv").config();
+
+const { Client, GatewayIntentBits, Collection } = require("discord.js");
 
 const client = new Client({
     intents: [
@@ -9,7 +11,7 @@ const client = new Client({
 
 client.commands = new Collection();
 
-require('./handlers/commands')(client);
-require('./handlers/events')(client);
+require("./handlers/commands")(client);
+require("./handlers/events")(client);
 
 client.login(process.env.TOKEN);

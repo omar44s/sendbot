@@ -9,7 +9,7 @@ const {
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("send")
-        .setDescription("إرسال رسالة"),
+        .setDescription("إرسال Embed عن طريق Modal"),
 
     async execute(interaction) {
 
@@ -19,25 +19,31 @@ module.exports = {
 
         const title = new TextInputBuilder()
             .setCustomId("title")
-            .setLabel("العنوان")
-            .setStyle(TextInputStyle.Short);
+            .setLabel("عنوان الرسالة")
+            .setPlaceholder("مثال: قوانين السيرفر")
+            .setStyle(TextInputStyle.Short)
+            .setRequired(true);
 
         const description = new TextInputBuilder()
             .setCustomId("description")
-            .setLabel("الوصف")
-            .setStyle(TextInputStyle.Paragraph);
+            .setLabel("وصف الرسالة")
+            .setPlaceholder("اكتب الوصف هنا...")
+            .setStyle(TextInputStyle.Paragraph)
+            .setRequired(true);
 
         const color = new TextInputBuilder()
             .setCustomId("color")
-            .setLabel("لون Embed")
-            .setRequired(false)
-            .setStyle(TextInputStyle.Short);
+            .setLabel("لون الـ Embed (#5865F2)")
+            .setPlaceholder("#5865F2")
+            .setStyle(TextInputStyle.Short)
+            .setRequired(false);
 
         const banner = new TextInputBuilder()
             .setCustomId("banner")
-            .setLabel("رابط البنر")
-            .setRequired(false)
-            .setStyle(TextInputStyle.Short);
+            .setLabel("رابط الصورة أو البنر")
+            .setPlaceholder("https://example.com/image.png")
+            .setStyle(TextInputStyle.Short)
+            .setRequired(false);
 
         modal.addComponents(
             new ActionRowBuilder().addComponents(title),
@@ -47,5 +53,6 @@ module.exports = {
         );
 
         await interaction.showModal(modal);
+
     }
 };
